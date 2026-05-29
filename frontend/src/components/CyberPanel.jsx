@@ -184,12 +184,12 @@ export default function CyberPanel({ oblast, data, history, simResult, shap, mod
             Support Vector Machine (SVM) out-performed neural and ensemble architectures during rigorous Cross-Validation.
           </div>
           {Object.entries(modelComparison)
-            .sort((a,b) => b[1].f1_score - a[1].f1_score)
+            .sort((a,b) => b[1].test_f1_score - a[1].test_f1_score)
             .slice(0, 4)
             .map(([mName, metrics]) => (
               <div key={mName} style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'4px 0', borderBottom:'1px solid #222'}}>
                 <span style={{color: mName==='SVM' ? '#ffb000' : '#888', fontWeight: mName==='SVM' ? 'bold' : 'normal'}}>{mName}</span>
-                <span style={{color:'#c4c4c4', fontSize:'0.8rem'}}>F1: {(metrics.f1_score*100).toFixed(1)}%</span>
+                <span style={{color:'#c4c4c4', fontSize:'0.8rem'}}>F1: {(metrics.test_f1_score*100).toFixed(1)}%</span>
               </div>
           ))}
         </div>

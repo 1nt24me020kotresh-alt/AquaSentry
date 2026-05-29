@@ -15,6 +15,8 @@
     <img src="https://img.shields.io/badge/NASA%20POWER-Data_Source-0B3D91?style=for-the-badge&logo=nasa&logoColor=white" alt="NASA POWER" />
     <img src="https://img.shields.io/badge/GADM-Boundaries-4CAF50?style=for-the-badge" alt="GADM" />
   </div>
+  <br/>
+  <h3>🚀 <a href="https://gleeful-hamster-c986a6.netlify.app/">Try the Live Dashboard Here</a></h3>
 </div>
 
 ---

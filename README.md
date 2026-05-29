@@ -99,9 +99,7 @@ uvicorn main:app --reload
 - Kazakhstan Boundaries: https://gadm.org (gadm41_KAZ_1)
 
 ## Team
-- **Member A** — ML & Data Engineering (satellite data pipeline + XGBoost model)
-- **Member B** — Frontend & Backend (React dashboard + FastAPI API)
-- **Member C** — Research, Strategy & Pitch
+- **Kotresh** — ML & Data Engineering (satellite data pipeline + XGBoost model)
+- **Shreeya Attri** — Frontend & Backend (React dashboard + FastAPI API)
+- **Zainaba Nargis Shah** — Research, Strategy & Pitch
 
----
-*AquaSentry | SmartEarth 2026 Hackathon | Nazarbayev University*

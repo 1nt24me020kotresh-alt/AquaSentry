@@ -127,7 +127,7 @@ cd frontend
 npm install
 npm run dev
 ```
-*Dashboard runs at `http://localhost:5173`*
+*Dashboard runs at `(https://gleeful-hamster-c986a6.netlify.app/)`*
 
 ---
 
@@ -137,6 +137,4 @@ npm run dev
 - **Zainaba Nargis Shah** — Research, Strategy & Pitch
 
 ---
-<div align="center">
-  <i>Built with ❤️ for the SafeEarth Kazakhstan Hackathon 2026</i>
-</div>
+

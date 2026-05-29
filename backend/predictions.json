@@ -1,0 +1,128 @@
+{
+  "Almaty": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 1.0,
+    "rainfall_anomaly": 10.7,
+    "current_level": "Normal"
+  },
+  "Aqmola": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 1.0,
+    "rainfall_anomaly": -1.8,
+    "current_level": "Normal"
+  },
+  "Aqtöbe": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 0.98,
+    "rainfall_anomaly": -52.6,
+    "current_level": "Normal"
+  },
+  "Atyrau": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 1.0,
+    "rainfall_anomaly": -26.8,
+    "current_level": "Normal"
+  },
+  "EastKazakhstan": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 0.93,
+    "rainfall_anomaly": 28.9,
+    "current_level": "Normal"
+  },
+  "Mangghystau": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 1.0,
+    "rainfall_anomaly": 11.6,
+    "current_level": "Normal"
+  },
+  "NorthKazakhstan": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 0.59,
+    "rainfall_anomaly": -21.9,
+    "current_level": "Normal"
+  },
+  "Pavlodar": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 0.95,
+    "rainfall_anomaly": -45.3,
+    "current_level": "Normal"
+  },
+  "Qaraghandy": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 1.0,
+    "rainfall_anomaly": -29.1,
+    "current_level": "Normal"
+  },
+  "Qostanay": {
+    "stress_30d": "Normal",
+    "stress_60d": "Watch",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 0.52,
+    "rainfall_anomaly": -44.8,
+    "current_level": "Watch"
+  },
+  "Qyzylorda": {
+    "stress_30d": "Normal",
+    "stress_60d": "Watch",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 0.99,
+    "rainfall_anomaly": -46.0,
+    "current_level": "Normal"
+  },
+  "SouthKazakhstan": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 0.98,
+    "rainfall_anomaly": -17.5,
+    "current_level": "Normal"
+  },
+  "WestKazakhstan": {
+    "stress_30d": "Watch",
+    "stress_60d": "Watch",
+    "stress_90d": "Normal",
+    "color_30d": "#f39c12",
+    "confidence": 0.98,
+    "rainfall_anomaly": -38.0,
+    "current_level": "Normal"
+  },
+  "Zhambyl": {
+    "stress_30d": "Normal",
+    "stress_60d": "Normal",
+    "stress_90d": "Normal",
+    "color_30d": "#2ecc71",
+    "confidence": 0.99,
+    "rainfall_anomaly": -37.6,
+    "current_level": "Normal"
+  }
+}

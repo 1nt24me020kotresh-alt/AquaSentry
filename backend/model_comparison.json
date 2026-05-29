@@ -1,0 +1,27 @@
+{
+  "RandomForest": {
+    "cv_f1_score": 0.7734681518518932,
+    "test_accuracy": 0.8625,
+    "test_f1_score": 0.8581768833576062
+  },
+  "LightGBM": {
+    "cv_f1_score": 0.7638693016860799,
+    "test_accuracy": 0.875,
+    "test_f1_score": 0.8567318999385305
+  },
+  "XGBoost": {
+    "cv_f1_score": 0.762217126272073,
+    "test_accuracy": 0.8666666666666667,
+    "test_f1_score": 0.8651772903580132
+  },
+  "SVM": {
+    "cv_f1_score": 0.7746897467194938,
+    "test_accuracy": 0.8666666666666667,
+    "test_f1_score": 0.8608752942963469
+  },
+  "MLP": {
+    "cv_f1_score": 0.7497218926330671,
+    "test_accuracy": 0.875,
+    "test_f1_score": 0.8663560234819143
+  }
+}

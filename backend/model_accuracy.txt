@@ -1,0 +1,6 @@
+Best Model:     XGBoost
+Train accuracy: 93.8%
+Test accuracy:  86.7%
+Train F1-Score: 94.0%
+Test F1-Score:  76.2%
+Features used:  ['month_sin', 'month_cos', 'rain_z_lag1', 'rain_z_lag2', 'rain_z_roll3', 'rain_z_trend', 'temp_z_lag1', 'temp_z_lag2', 'temp_z_roll3', 'soil_z_lag1', 'soil_z_lag2', 'soil_z_roll3', 'roll3_lag1', 'ndvi_z_lag1', 'ndvi_z_lag2', 'flow_z_lag1', 'flow_z_lag2', 'irrigation_efficiency']

@@ -1,0 +1,10 @@
+============================================================
+REAL NDVI Download — ORNL DAAC MODIS API
+============================================================
+Fetching available dates...
+Total dates: 230. Batches per oblast: 23
+
+[1/14] Almatinskaya (lat=44.85, lon=76.95)
+  ✅ Saved 120 monthly records to data/processed/ndvi_by_oblast.csv
+
+[2/14] Akmolinskaya (lat=51.15, lon=69.4)

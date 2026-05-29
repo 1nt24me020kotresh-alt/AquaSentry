@@ -121,7 +121,7 @@ cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
-*API runs at `https://aquasentry-awy8.onrender.com/`*
+*API runs at `http://localhost:8000`*
 
 #### Frontend (Terminal 2)
 ```bash
@@ -129,7 +129,7 @@ cd frontend
 npm install
 npm run dev
 ```
-*Dashboard runs at `https://gleeful-hamster-c986a6.netlify.app/`*
+*Dashboard runs at `http://localhost:5173`*
 
 ---
 

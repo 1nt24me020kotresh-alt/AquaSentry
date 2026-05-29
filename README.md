@@ -1,105 +1,142 @@
-# 🌊 AquaSentry
-### AI-Powered Regional Water Stress Forecaster for Kazakhstan
-**SmartEarth 2026 Hackathon | Nazarbayev University, Kazakhstan**
+<div align="center">
+  <h1>🌊 AquaSentry</h1>
+  <p><strong>AI-Powered Regional Water Stress Forecaster for Kazakhstan</strong></p>
+  <p><em>SmartEarth 2026 Hackathon | Nazarbayev University, Kazakhstan</em></p>
+
+  <div>
+    <img src="https://img.shields.io/badge/React-20232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Vite-B73BFE.svg?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+    <img src="https://img.shields.io/badge/FastAPI-009688.svg?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+    <img src="https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/Scikit--Learn-F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-Learn" />
+  </div>
+  <br/>
+  <div>
+    <img src="https://img.shields.io/badge/NASA%20POWER-Data_Source-0B3D91?style=for-the-badge&logo=nasa&logoColor=white" alt="NASA POWER" />
+    <img src="https://img.shields.io/badge/GADM-Boundaries-4CAF50?style=for-the-badge" alt="GADM" />
+  </div>
+</div>
 
 ---
 
-## What It Does & Why It Matters
-AquaSentry predicts district-level water stress 30–90 days in advance for
-Kazakhstan using satellite climate data and machine learning. 
+## 🌍 What It Does & Why It Matters
+
+**AquaSentry** predicts district-level water stress 30–90 days in advance for Kazakhstan using satellite climate data and machine learning. 
 
 **Equity-First Approach:** Water scarcity disproportionately affects rural agricultural communities. By providing highly localized, early-warning stress predictions, AquaSentry enables decision-makers to equitably coordinate regional water allocation, proactively activate drought reserves, and protect the livelihoods of local farmers before a crisis hits.
 
-## Tech Stack
-| Layer | Technology |
-|-------|-----------|
-| ML Model | XGBoost (multi-class classifier) |
-| Data Source | NASA POWER satellite precipitation (MERRA-2, 2015–2024) |
-| Boundaries | GADM Kazakhstan Level-1 (14 oblasts) |
-| Backend | Python + FastAPI |
-| Frontend | React + Leaflet.js |
+---
 
-## Model Performance
+## 🏗️ Architecture & C4 Component Diagram
+
+Here is a C4 Component Diagram illustrating how AquaSentry processes NASA satellite data, generates AI predictions, and serves them to the frontend dashboard. For a detailed breakdown, please see the [C4 Architecture Documentation](C4_ARCHITECTURE.md).
+
+```mermaid
+C4Component
+    title Component Diagram for AquaSentry Application
+
+    Container_Boundary(aquasentry_system, "AquaSentry Application") {
+        Component(frontend, "Frontend Dashboard", "React, Vite, Leaflet.js", "Displays water stress map, forward projections, and historical records.")
+        Component(fastapi, "Backend API", "FastAPI (Python)", "Serves REST API endpoints for predictions, simulations, and map data.")
+        Component(ml_model, "ML Inference Engine", "Scikit-Learn, SVM/XGBoost", "Computes drought stress levels based on lag-shifted weather features.")
+        ComponentDb(file_db, "Processed Data Store", "JSON & CSV", "Stores historical data, global SHAP importance, and precomputed 30/60/90-day predictions.")
+    }
+
+    System_Ext(nasa_api, "NASA POWER API", "Provides MERRA-2 bias-corrected precipitation & weather data.")
+    System_Ext(gadm, "GADM Boundaries", "Provides Level-1 geographical boundaries for Kazakhstan.")
+
+    Rel(frontend, fastapi, "Fetches predictions, map boundaries, and metrics via", "JSON/REST")
+    Rel(fastapi, ml_model, "Triggers live inference simulations", "Python")
+    Rel(fastapi, file_db, "Reads historical & precomputed data", "File I/O")
+    Rel(ml_model, nasa_api, "Trains & predicts using weather data from", "HTTPS")
+    Rel(frontend, gadm, "Renders geographical shapes using", "GeoJSON")
+```
+
+---
+
+## 📈 Model Performance
+
 - **Train accuracy (2015–2022):** 96.6%
 - **Test accuracy (2023–2024):** 87.5%
 - **Test F1-Score:** 87.1%
 - **Class Balancing:** SMOTE applied on the training set to combat class imbalance.
-- **Explainability:** SHAP global importance exported to `backend/shap_importance.json`.
-- **Backtested on 2021 Central Asian Drought** — correctly flagged Warning/Emergency
-  for southern oblasts (Yujno-kazachstanskaya, Jambylslkaya, Almatinskaya) during 2021
+- **Explainability:** SHAP global importance calculated to identify primary drought drivers.
+- **Backtested on 2021 Central Asian Drought** — correctly flagged Warning/Emergency for southern oblasts (Yujno-kazachstanskaya, Jambylslkaya, Almatinskaya) during 2021.
 
-> **Note:** 87.5% test accuracy with no data leakage — all 13 features are
-> temporally lagged by 1–2 months to ensure genuine forecasting.
+> **Note:** 87.5% test accuracy with **no data leakage** — all 13 features are temporally lagged by 1–2 months to ensure genuine forecasting.
 
-## Drought Stress Levels
-| Level | Composite Z-Score Threshold | Color |
-|-------|-----------------------------|-------|
-| Normal | > −0.3 | 🟢 `#2ecc71` |
-| Watch | −0.3 to −0.6 | 🟡 `#f39c12` |
-| Warning | −0.6 to −0.9 | 🟠 `#e67e22` |
-| Emergency | < −0.9 | 🔴 `#e74c3c` |
+---
 
-## Coverage
-- **14 Kazakhstan oblasts** (GADM Level-1 boundaries)
-- **30 / 60 / 90-day forecasts** per oblast
-- Confidence score per prediction (model probability)
+## 📊 Drought Stress Levels
 
-## Features Used (13 Features — All Lag-Shifted, No Data Leakage)
+| Level | Composite Z-Score Threshold | Action Required | Color Indicator |
+|-------|-----------------------------|-----------------|-----------------|
+| **Normal** | > −0.3 | None | 🟢 `#2ecc71` |
+| **Watch** | −0.3 to −0.6 | Monitor localized dry conditions | 🟡 `#f39c12` |
+| **Warning** | −0.6 to −0.9 | Prepare to activate drought reserves | 🟠 `#e67e22` |
+| **Emergency**| < −0.9 | Enact immediate water allocation protocols | 🔴 `#e74c3c` |
+
+---
+
+## 🧬 Features Used (13 Features)
+
+To prevent data leakage, **all features are lag-shifted**:
 1. `month_sin` / `month_cos` — Cyclical seasonal position
-2. `rain_z_lag1`, `rain_z_lag2` — Rainfall Z-score 1-2 months before prediction target
-3. `temp_z_lag1`, `temp_z_lag2` — Temperature Z-score 1-2 months before prediction target
-4. `soil_z_lag1`, `soil_z_lag2` — Soil Moisture Z-score 1-2 months before prediction target
+2. `rain_z_lag1`, `rain_z_lag2` — Rainfall Z-score 1-2 months prior
+3. `temp_z_lag1`, `temp_z_lag2` — Temperature Z-score 1-2 months prior
+4. `soil_z_lag1`, `soil_z_lag2` — Soil Moisture Z-score 1-2 months prior
 5. `rain_z_roll3`, `temp_z_roll3`, `soil_z_roll3` — 3-month rolling averages of lagged anomalies
 6. `rain_z_trend` — Direction of rainfall change (lag1 − lag2)
 7. `roll3_lag1` — Previous month's 3-month rolling composite anomaly
 
-## Data Source
-Precipitation data downloaded from **NASA POWER API** (MERRA-2 reanalysis,
-bias-corrected). 1680 records: 14 oblasts × 10 years × 12 months.
-- API: `https://power.larc.nasa.gov/api/temporal/monthly/point`
-- Parameter: `PRECTOTCORR` (mm/day → converted to total monthly mm)
-- No synthetic data used.
+---
 
-## How to Run (Backend API)
+## 🚀 Getting Started (Local Development)
+
+### Prerequisites
+- **Node.js** 18+
+- **Python** 3.9+
+- **Git**
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/1nt24me020kotresh-alt/AquaSentry.git
+cd AquaSentry
+```
+
+### 2. Start the Application (One-Click)
+We provide a convenient bash script that boots both the FastAPI backend and React frontend simultaneously.
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+**Alternatively, you can run them manually:**
+
+#### Backend (Terminal 1)
 ```bash
 cd backend
-pip install fastapi uvicorn joblib pandas
+pip install -r requirements.txt
 uvicorn main:app --reload
-# GET /api/predictions → returns predictions.json
 ```
+*API runs at `http://localhost:8000`*
 
-## Output Files
-| File | Description |
-|------|-------------|
-| `data/processed/chirps_by_oblast.csv` | Monthly rainfall per oblast (1680 rows, real NASA POWER data) |
-| `data/processed/stress_index.csv` | Drought stress + all ML features |
-| `backend/model.pkl` | Trained XGBoost classifier (n_estimators=400, 13 features) |
-| `backend/predictions.json` | 30/60/90-day forecasts for all 14 oblasts |
-| `backend/shap_importance.json` | Global SHAP feature importances |
-| `backend/model_accuracy.txt` | Train/test accuracy and F1-score numbers |
-
-## GeoJSON Oblast Name Column
-- **Column:** `NAME_1`
-- **14 oblasts:** Almaty, Aqmola, Aqtöbe, Atyrau, EastKazakhstan, Mangghystau,
-  NorthKazakhstan, Pavlodar, Qaraghandy, Qostanay, Qyzylorda, SouthKazakhstan,
-  WestKazakhstan, Zhambyl
-
-## Color Scheme for Frontend
-```json
-{
-  "Normal":    "#2ecc71",
-  "Watch":     "#f39c12",
-  "Warning":   "#e67e22",
-  "Emergency": "#e74c3c"
-}
+#### Frontend (Terminal 2)
+```bash
+cd frontend
+npm install
+npm run dev
 ```
+*Dashboard runs at `http://localhost:5173`*
 
-## Data Sources
-- NASA POWER Precipitation: https://power.larc.nasa.gov/
-- Kazakhstan Boundaries: https://gadm.org (gadm41_KAZ_1)
+---
 
-## Team
-- **Kotresh** — ML & Data Engineering (satellite data pipeline + XGBoost model)
-- **Shreeya Attri** — Frontend & Backend (React dashboard + FastAPI API)
+## 👥 The Team
+- **Kotresh** — ML & Data Engineering (Satellite data pipeline + ML models)
+- **Shreeya Attri** — Frontend & Backend (React dashboard + FastAPI architecture)
 - **Zainaba Nargis Shah** — Research, Strategy & Pitch
 
+---
+<div align="center">
+  <i>Built with ❤️ for the SafeEarth Kazakhstan Hackathon 2026</i>
+</div>

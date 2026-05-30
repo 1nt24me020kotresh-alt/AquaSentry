@@ -58,9 +58,9 @@ C4Component
 
 ## 📈 Model Performance
 
-- **Train accuracy (2015–2022):** 96.6%
-- **Test accuracy (2023–2024):** 87.5%
-- **Test F1-Score:** 87.1%
+- **Train accuracy (2015–2022):** 87.5%
+- **Test accuracy (2023–2024):** 78.3%
+- **Test F1-Score:** 78.6%
 - **Class Balancing:** SMOTE applied on the training set to combat class imbalance.
 - **Explainability:** SHAP global importance calculated to identify primary drought drivers.
 - **Real-World Validation (2021 Central Asian Drought):** The model correctly flagged the hardest-hit southern and western regions (Mangystau, Kyzylorda, Turkestan) with severe prolonged drought warnings during the historical 2021 crisis.

@@ -74,7 +74,7 @@ xychart-beta
     bar [12, 10, 8, 7, 7, 7]
 ```
 
-> **Note:** 87.5% test accuracy with **no data leakage** — all 13 features are temporally lagged by 1–2 months to ensure genuine forecasting.
+> **Note:** 78.3% test accuracy with **no data leakage** — all 13 features are temporally lagged by 1–2 months to ensure genuine forecasting.
 
 ---
 
